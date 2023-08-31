@@ -16,12 +16,10 @@ end
 
 class Nokogiri::XML::Element
 	def n_next(n)
-		n.times {self.next_element}
+		node = self
+		n.times {node = node.next_element}
+		node
 	end
-end
-
-def n_next(node, n)
-	n.times {node.next_element}
 end
 
 url = 'http://spheres5e.wikidot.com/spheres-of-power'
